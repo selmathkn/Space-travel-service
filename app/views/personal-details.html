@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+
+
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+{% block content %}
+<form class="form" action="/address" method="post">
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {{ govukInput({
+   
+    label: {
+      text: "Please enter your name",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    id: "personName",
+    name: "personName",
+    
+    value:data["personName"]
+    
+  })
+  
+  }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+
+
+
+</form>
+
+
+
+
+
+
+{% endblock %}
